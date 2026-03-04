@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Enter Your Name</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a2e;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .box {
+      background: #16213e;
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 100%;
+      border: 2px solid #e94560;
+    }
+    h1 { color: #e94560; margin-bottom: 10px; }
+    p { color: #aaa; margin-bottom: 20px; }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #e94560;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    button:hover { background: #c73652; }
+
+    /* Roast screen */
+    #roastScreen {
+      display: none;
+    }
+    #roastScreen .emoji { font-size: 4em; margin-bottom: 20px; }
+    #roastScreen h1 { font-size: 2em; margin-bottom: 16px; }
+    #roastScreen p { font-size: 1.4em; color: white; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <!-- Entry Screen -->
+  <div class="box" id="entryScreen">
+    <h1>👀 Ek Kaam Kar</h1>
+    <p>Apna naam daal, kuch interesting dekhne ko milega 😏</p>
+    <input type="text" id="nameInput" placeholder="Apna naam likho..." />
+    <button onclick="showRoast()">Submit</button>
+  </div>
+
+  <!-- Roast Screen -->
+  <div class="box" id="roastScreen">
+    <div class="emoji">😂</div>
+    <h1 id="roastTitle"></h1>
+    <p id="roastMessage"></p>
+    <br/>
+    <small style="color:#888">Tu phans gaya 🔥</small>
+  </div>
+
+  <script>
+    function showRoast() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (!name) return alert("Naam toh daal bhai!");
+
+      document.getElementById("entryScreen").style.display = "none";
+      document.getElementById("roastScreen").style.display = "block";
+      document.getElementById("roastTitle").textContent = name + " 👋";
+      document.getElementById("roastMessage").textContent = name + " laude kya karre 😂";
+    }
+  </script>
+
+</body>
+</html>
